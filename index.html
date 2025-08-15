@@ -571,5 +571,19 @@
   });
 </script>
 
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("x7n94F6F5zd-yca1a"); // Your Public Key
+  })();
+
+  // Use your existing form ID
+  document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    emailjs.sendForm("service_f24x354", "template_jl2kykk", this)
+      .then(() => alert("Email Sent!"))
+      .catch(err => alert(JSON.stringify(err)));
+  });
+</script>
 </body>
 </html>
