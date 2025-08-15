@@ -465,7 +465,7 @@
       dots.appendChild(b);
     });
     function updateCarousel(){
-      track.style.transform = `translateX(${-idx*100}%)`;
+      track.style.transform = translateX(${-idx*100}%);
       [...dots.children].forEach((d,i)=> d.classList.toggle('active', i===idx));
     }
     setInterval(()=>{ idx=(idx+1)%slides.length; updateCarousel(); }, 5000);
@@ -491,44 +491,44 @@
         return toast('Please fill all required fields.');
       }
       // Save to localStorage
-      const key = `registration:${Date.now()}`;
+      const key = registration:${Date.now()};
       localStorage.setItem(key, JSON.stringify(data));
 
       // Prepare mailto fallback
       const subject = encodeURIComponent('New Registration — St. Anthony Herbal Centre');
       const body = encodeURIComponent(
-        `Name: ${data.name}\n`+
-        `Phone: ${data.phone}\n`+
-        `Email: ${data.email||''}\n`+
-        `Service: ${data.service}\n`+
-        `Reference: ${data.ref}\n`+
-        `Preferred Date: ${data.date}\n`+
-        `Notes: ${data.notes||''}\n`
+        Name: ${data.name}\n+
+        Phone: ${data.phone}\n+
+        Email: ${data.email||''}\n+
+        Service: ${data.service}\n+
+        Reference: ${data.ref}\n+
+        Preferred Date: ${data.date}\n+
+        Notes: ${data.notes||''}\n
       );
-      const mailto = const mailto = `mailto:stanthonyherbalcentre@gmail.com?subject=${subject}&body=${body}`;
+      const mailto = mailto:stanthonyherbalcentre@gmail.com?subject=${subject}&body=${body};
       // You can uncomment the next line to open the email client automatically
       // window.open(mailto, '_blank');
 
       toast('Registration received. We will contact you shortly.');
       regForm.reset();
-      closeModal();
+      closeModal();-
     });
 
     // Download Receipt (simple JSON file)
     document.getElementById('btnSavePDF').addEventListener('click', ()=>{
       const data = Object.fromEntries(new FormData(regForm).entries());
       const stamp = new Date().toISOString().replace(/[:.]/g,'-');
-      const filename = `Registration-${stamp}.txt`;
-      const content = `St. Anthony Herbal Centre\nPayment Confirmation Receipt\n\n`+
-        `Name: ${data.name||''}\n`+
-        `Phone: ${data.phone||''}\n`+
-        `Email: ${data.email||''}\n`+
-        `Service: ${data.service||''}\n`+
-        `Airtel Reference: ${data.ref||''}\n`+
-        `Preferred Date: ${data.date||''}\n`+
-        `Notes: ${data.notes||''}\n`+
-        `Merchant Code: 6869397\n`+
-        `Generated: ${new Date().toString()}\n`;
+      const filename = Registration-${stamp}.txt;
+      const content = St. Anthony Herbal Centre\nPayment Confirmation Receipt\n\n+
+        Name: ${data.name||''}\n+
+        Phone: ${data.phone||''}\n+
+        Email: ${data.email||''}\n+
+        Service: ${data.service||''}\n+
+        Airtel Reference: ${data.ref||''}\n+
+        Preferred Date: ${data.date||''}\n+
+        Notes: ${data.notes||''}\n+
+        Merchant Code: 6869397\n+
+        Generated: ${new Date().toString()}\n;
       const blob = new Blob([content], {type:'text/plain'});
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -542,8 +542,8 @@
       e.preventDefault();
       const d = Object.fromEntries(new FormData(e.target).entries());
       const subject = encodeURIComponent('Website Inquiry — St. Anthony Herbal Centre');
-      const body = encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\n\n${d.message}`);
-      window.location.href = window.location.href = `mailto:stanthonyherbalcentre@gmail.com?subject=${subject}&body=${body}`;
+      const body = encodeURIComponent(Name: ${d.name}\nEmail: ${d.email}\n\n${d.message});
+      window.location.href = mailto:stanthonyherbalcentre@gmail.com?subject=${subject}&body=${body};
       toast('Opening your email app to send the message…');
       e.target.reset();
     });
