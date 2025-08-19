@@ -362,29 +362,24 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function(){
-    emailjs.init("x7n94F6F5zd-yca1a"); // Public Key
+    emailjs.init("x7n94F6F5zd-yca1a"); // Your Public Key
   })();
 
-  // Contact Form
-  document.getElementById("contactForm").addEventListener("submit", function(event){
-    event.preventDefault();
-    emailjs.sendForm("service_f24x354", "template_jl2kykk", this)
-      .then(() => {
-        window.location.href = "thank-you.html"; // Redirect
-      })
-      .catch(err => alert("❌ Error: " + JSON.stringify(err)));
-  });
+  // Handle both forms with one function
+  function sendEmail(formId) {
+    document.getElementById(formId).addEventListener("submit", function(event){
+      event.preventDefault();
+      emailjs.sendForm("service_f24x354", "template_jl2kykk", this)
+        .then(() => window.location.href = "thank-you.html")
+        .catch(err => alert("❌ Error: " + JSON.stringify(err)));
+    });
+  }
 
-  // Registration Form
-  document.getElementById("regForm").addEventListener("submit", function(event){
-    event.preventDefault();
-    emailjs.sendForm("service_f24x354", "template_jl2kykk", this)
-      .then(() => {
-        window.location.href = "thank-you.html"; // Redirect
-      })
-      .catch(err => alert("❌ Error: " + JSON.stringify(err)));
-  });
+  // Apply to both forms
+  sendEmail("contactForm");
+  sendEmail("regForm");
 </script>
+
 
   <footer>
     <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
