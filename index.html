@@ -501,111 +501,52 @@
     function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
     function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
 
-    // Registration form
-    const regForm = document.getElementById('regForm');
-    regForm.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = Object.fromEntries(new FormData(regForm).entries());
-      // basic validation
-      if(!data.name || !data.phone || !data.service || !data.ref || !data.date){
-        return toast('Please fill all required fields.');
-      }
-      // Save to localStorage
-      const key = `registration:${Date.now()}`;
-      localStorage.setItem(key, JSON.stringify(data));
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
 
-      // Prepare mailto fallback
-      const subject = encodeURIComponent('New Registration — St. Anthony Herbal Centre');
-      const body = encodeURIComponent(
-        `Name: ${data.name}\n`+
-        `Phone: ${data.phone}\n`+
-        `Email: ${data.email||''}\n`+
-        `Service: ${data.service}\n`+
-        `Reference: ${data.ref}\n`+
-        `Preferred Date: ${data.date}\n`+
-        `Notes: ${data.notes||''}\n`
-      );
-      const mailto = `mailto:stanthonyherbalcentre@gmail.ccom?subject=${subject}&body=${body}`;
-      // You can uncomment the next line to open the email client automatically
-      // window.open(mailto, '_blank');
+.form-input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.form-input:focus {
+  border-color: #2c7a7b;
+  box-shadow: 0 0 6px rgba(44, 122, 123, 0.4);
+  outline: none;
+}
 
-      toast('Registration received. We will contact you shortly.');
-      regForm.reset();
-      closeModal();
-    });
+.btn-primary {
+  background: #2c7a7b;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn-primary:hover { background: #285e61; }
 
-    // Download Receipt (simple JSON file)
-    document.getElementById('btnSavePDF').addEventListener('click', ()=>{
-      const data = Object.fromEntries(new FormData(regForm).entries());
-      const stamp = new Date().toISOString().replace(/[:.]/g,'-');
-      const filename = `Registration-${stamp}.txt`;
-      const content = `St. Anthony Herbal Centre\nPayment Confirmation Receipt\n\n`+
-        `Name: ${data.name||''}\n`+
-        `Phone: ${data.phone||''}\n`+
-        `Email: ${data.email||''}\n`+
-        `Service: ${data.service||''}\n`+
-        `Airtel Reference: ${data.ref||''}\n`+
-        `Preferred Date: ${data.date||''}\n`+
-        `Notes: ${data.notes||''}\n`+
-        `Merchant Code: 6869397\n`+
-        `Generated: ${new Date().toString()}\n`;
-      const blob = new Blob([content], {type:'text/plain'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = filename;
-      a.click();
-      URL.revokeObjectURL(a.href);
-    });
+.btn-secondary {
+  background: #eee;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.btn-secondary:hover { background: #ddd; }
 
-    // Contact form (mailto)
-    document.getElementById('contactForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const d = Object.fromEntries(new FormData(e.target).entries());
-      const subject = encodeURIComponent('Website Inquiry — St. Anthony Herbal Centre');
-      const body = encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\n\n${d.message}`);
-      window.location.href = `mailto:stanthonyherbalcentre@gmail.com?subject=${subject}&body=${body}`;
-      toast('Opening your email app to send the message…');
-      e.target.reset();
-    });
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    // Tiny toast helper
-    const toastEl = document.getElementById('toast');
-    let toastTimer = null;
-    function toast(msg){
-      toastEl.textContent = msg;
-      toastEl.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(()=> toastEl.classList.remove('show'), 3200);
-    }
-  </script><script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-  emailjs.init("x7n94F6F5zd-yca1a"); // <-- your Public Key
-})();
-
-document.getElementById("contactForm").addEventListener("submit", function(event){
-  event.preventDefault();
-  emailjs.sendForm("service_f24x354", "template_jl2kykk", this) // <-- Service ID & Template ID
-    .then(() => alert("Email Sent!"))
-    .catch(err => alert(JSON.stringify(err)));
-});
-
-</script>
-
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("x7n94F6F5zd-yca1a"); // Your Public Key
-  })();
-
-  // Use your existing form ID
-  document.getElementById("contactForm").addEventListener("submit", function(event){
-    event.preventDefault();
-    emailjs.sendForm("service_f24x354", "template_jl2kykk", this)
-      .then(() => alert("Email Sent!"))
-      .catch(err => alert(JSON.stringify(err)));
-  });
-</script>
 </body>
 </html>
 
