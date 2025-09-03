@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>St Anthony Herbal Centre | Herbal Remedies in [Your City]</title>
-  <meta name="description" content="St Anthony Herbal Centre offers natural herbal remedies and wellness solutions in [City/Region].">
+  <title>St Anthony Herbal Centre | Herbal Remedies in Kampala</title>
+  <meta name="description" content="St Anthony Herbal Centre offers natural herbal remedies and wellness solutions in Kampala.">
   <style>
     :root{
       --green-900:#0f3d2e;
       --green-700:#1f6f54;
       --green-600:#2b8a62;
       --green-500:#45a777;
-      --green-300:#6dbe45; /* brand accent */
+      --green-300:#6dbe45;
       --beige-50:#f9f6f0;
       --beige-100:#f3eee5;
       --brown-400:#a58f70;
@@ -24,7 +24,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--text);background:var(--beige-50);}
-
+    
     /* Header */
     .topbar{position:sticky;top:0;z-index:1000;backdrop-filter:saturate(140%) blur(6px);background:linear-gradient(180deg, rgba(249,246,240,.88), rgba(249,246,240,.66));border-bottom:1px solid #e6e0d6}
     .container{max-width:1120px;margin:0 auto;padding:0 16px}
@@ -42,7 +42,7 @@
     .btn-primary:hover{background:var(--green-700)}
     .btn-outline{background:white;color:var(--green-700);border:2px solid var(--green-500)}
     .btn-outline:hover{background:var(--beige-50)}
-
+    
     /* Hero */
     .hero{position:relative;overflow:hidden}
     .hero::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:70%;background:radial-gradient(60% 60% at 20% 30%, rgba(109,190,69,.25), transparent 70%),radial-gradient(60% 60% at 80% 20%, rgba(43,138,98,.18), transparent 70%);} 
@@ -51,12 +51,12 @@
     h1{margin:.3rem 0 0;font-size:clamp(28px, 5vw, 48px);line-height:1.05;color:var(--green-900)}
     .lead{font-size:1.05rem;color:var(--muted);margin:12px 0 20px}
     .quick{display:flex;gap:12px;flex-wrap:wrap}
-
+    
     /* Sections */
     section{padding:64px 0}
     .section-title{font-size:clamp(22px,3.2vw,32px);margin:0 0 8px;color:var(--green-900)}
     .section-sub{margin:0 0 28px;color:var(--muted)}
-
+    
     .grid{display:grid;gap:16px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
@@ -65,16 +65,16 @@
       .grid-3{grid-template-columns:1fr}
       .grid-2{grid-template-columns:1fr}
     }
-
+    
     .card{background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border:1px solid #eee;opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
     .card.in-view{opacity:1;transform:translateY(0)}
-
+    
     /* Services */
     .service{display:flex;gap:14px;align-items:flex-start}
     .service .icon{flex:0 0 44px;height:44px;border-radius:12px;background:linear-gradient(135deg, var(--green-500), var(--green-700));display:grid;place-items:center;color:white;font-weight:900}
     .service h3{margin:2px 0 6px}
     .service p{margin:0;color:var(--muted)}
-
+    
     /* Testimonials */
     .carousel{position:relative;overflow:hidden;border-radius:var(--radius);}
     .track{display:flex;transition:transform .6s ease}
@@ -82,21 +82,21 @@
     .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
     .dot{width:10px;height:10px;border-radius:999px;background:#d6d6d6;cursor:pointer;border:0}
     .dot.active{background:var(--green-500)}
-
+    
     /* Blog */
     .post{display:flex;gap:16px;align-items:flex-start}
     .post .leaf{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg, #cfe8c9, #9fd19e);display:grid;place-items:center;font-weight:800;color:var(--green-700)}
-
+    
     /* Contact */
     .field{display:grid;gap:6px;margin-bottom:14px}
     input, select, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid #e4e1da;background:#fff;font:inherit;outline:0;box-shadow:none}
     input:focus, select:focus, textarea:focus{border-color:var(--green-500);box-shadow:0 0 0 3px var(--ring)}
-
+    
     /* Footer */
     footer{background:var(--green-900);color:#eaf3ee;padding:28px 0}
     footer a{color:#eaf3ee}
-
-    /* Payment Modal */
+    
+    /* Modal */
     .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(15,61,46,.55);z-index:2000}
     .modal.open{display:grid}
     .modal-card{background:#fff;border-radius:20px;max-width:720px;width:92vw;box-shadow:var(--shadow);border:1px solid #eee}
@@ -104,449 +104,154 @@
     .modal-body{padding:18px 20px}
     .muted{color:var(--muted)}
     .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;background:#f2f6f4;border:1px solid #dce9e2;border-radius:8px;padding:2px 6px}
-
+    
     /* Toast */
     .toast{position:fixed;right:16px;bottom:16px;background:#103f30;color:#e7fff4;border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:opacity .35s ease, transform .35s ease;z-index:3000}
     .toast.show{opacity:1;transform:translateY(0)}
-
-    /* Social icons (inline SVG) */
-    .socials{display:flex;gap:10px}
-    .iconbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#fff;border:1px solid #e8e2d9;box-shadow:var(--shadow)}
-    .iconbtn:hover{transform:translateY(-1px)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-
-  /* Shrink the registration form */
-#regForm {
-    transform: scale(0.85);   /* shrink form to 85% */
-    transform-origin: top left; /* keep it aligned */
-}
-#regForm input,
-#regForm select,
-#regForm textarea,
-#regForm button {
-    font-size: 0.9rem; /* smaller text */
-    padding: 8px 10px; /* smaller input fields */
-}
-</style>
+    
+    /* Shrink registration form */
+    #regForm {
+      transform: scale(0.85);
+      transform-origin: top left;
+    }
+    #regForm input,
+    #regForm select,
+    #regForm textarea,
+    #regForm button {
+      font-size: 0.9rem;
+      padding: 8px 10px;
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="St. Anthony Herbal Centre home">
-        <!-- Replace the src below with your own profile picture path -->
-        <img src="profile.jpg" alt="Agnes profile picture">
-        <div class="title">St. Anthony Herbal Centre</div>
-      </a>
-      <nav class="spacer">
-        <a class="link" href="#about">About</a>
-        <a class="link" href="#services">Services</a>
-        <a class="link" href="#payment">Pay & Register</a>
-        <a class="link" href="#testimonials">Testimonials</a>
-        <a class="link" href="#blog">Blog</a>
-        <a class="link" href="#contact">Contact</a>
-      </nav>
-      <div class="cta">
-        <button class="btn btn-outline" id="btnTikTok" title="TikTok @namugangaagnes">TikTok</button>
-        <button class="btn btn-primary" id="btnPay">Pay & Register</button>
+
+<!-- ======= HEADER ======= -->
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="St. Anthony Herbal Centre home">
+      <img src="profile.jpg" alt="Agnes profile picture">
+      <div class="title">St. Anthony Herbal Centre</div>
+    </a>
+    <nav class="spacer">
+      <a class="link" href="#about">About</a>
+      <a class="link" href="#services">Services</a>
+      <a class="link" href="#payment">Pay & Register</a>
+      <a class="link" href="#testimonials">Testimonials</a>
+      <a class="link" href="#blog">Blog</a>
+      <a class="link" href="#contact">Contact</a>
+    </nav>
+    <div class="cta">
+      <button class="btn btn-outline" id="btnTikTok" title="TikTok @namugangaagnes">TikTok</button>
+      <button class="btn btn-primary" id="btnPay">Pay & Register</button>
+    </div>
+  </div>
+</header>
+
+<!-- ======= HERO ======= -->
+<main id="home" class="hero">
+  <div class="container wrap">
+    <div>
+      <span class="badge">Nature • Wellness • Care</span>
+      <h1>St Anthony Herbal Centre</h1>
+      <p class="lead">Authentic herbal care in Kampala. Consultations, detox programs, workshops, and custom herbal blends crafted by Agnes.</p>
+      <div class="quick">
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+        <button class="btn btn-primary" id="btnPay2">Pay & Register</button>
+      </div>
+      <div style="margin-top:18px" class="muted">
+        📞 <strong>+256 753 669 749</strong> | <strong>+256 752 094 135</strong> | <strong>+256 772 758 262</strong> | <strong>+256 755701074</strong><br>
+        🎵 TikTok: <strong>@namugangaagnes</strong>
       </div>
     </div>
-  </header>
-
-  <main id="home" class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="badge">Nature • Wellness • Care</span>
-        <h1>St Anthony Herbal Centre</h1>
-        <p class="lead">Authentic herbal care in Kampala. Consultations, detox programs, workshops, and custom herbal blends crafted by Agnes.</p>
-        <div class="quick">
-          <a href="#services" class="btn btn-outline">Explore Services</a>
-          <button class="btn btn-primary" id="btnPay2">Pay & Register</button>
-        </div>
-        <div style="margin-top:18px" class="muted">
-          📞 <strong>+256 753 669 749</strong> &nbsp;|&nbsp; <strong>+256 752 094 135</strong> &nbsp;|&nbsp; <strong>+256 772 758 262</strong>
-            |<strong> +256 755701074</strong><br />🎵 TikTok: <strong>@namugangaagnes</strong>
-        </div>
-      </div>
-      <div>
-        <div class="card in-view">
-          <h3 style="margin-top:0;color:var(--green-700)">Why choose us</h3>
-          <ul>
-            <li>100% natural, ethically sourced herbs</li>
-            <li>Over a decade of trusted community care</li>
-            <li>Personalized plans for real results</li>
-            <li>Eco‑friendly, minimal packaging</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Us</h2>
-      <p class="section-sub">St. Anthony Herbal Centre was founded by Agnes to blend traditional knowledge and modern wellness for safe, effective herbal care.</p>
-      <div class="grid grid-2">
-        <div class="card reveal">
-          <h3>Our Story</h3>
-          <p>What began as a family tradition of healing grew into a centre dedicated to holistic wellness. We believe in empowering clients with simple, natural routines that fit everyday life.</p>
-        </div>
-        <div class="card reveal">
-          <h3>Mission & Vision</h3>
-          <p><strong>Mission:</strong> Provide natural, safe, and effective herbal solutions for every individual.</p>
-          <p><strong>Vision:</strong> A healthier community through accessible herbal wellness.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="container">
-      <h2 class="section-title">Herbal Pacages</h2>
-      <p class="section-sub">Some of our herbal packages.</p>
-      <div class="grid grid-3">
-        <div class="card reveal service in-view">
-          <div class="icon">🤱</div>
-          <div>
-            <h3>Pregnant Women</h3>
-            <p>We have a three packages of the pregnant women. The first one at 2 months, secondly at 4months lastly at 7 to 9 months  .</p>
-            <p>overall the first package costs Shs.60000. The second it costs Shs.70000 the last one coasts Shs.150000 there are more packages that will be communicated when you contact us👩‍⚕️.</p>
-          </div>
-        </div>
-        <div class="card reveal service in-view">
-          <div class="icon">👨‍⚕️</div>
-          <div>
-            <h3>Ulcers</h3>
-            <p>we provide medication for all ulcer stages.</p>
-            <p>Payment refers to the stage of ulcers contact us for more information.</p>
-          </div>
-        </div>
-        <div class="card reveal service in-view">
-          <div class="icon">😰‍</div>
-          <div>
-            <h3>Yellow Fever</h3>
-            <p>we provide treatment on yellow fever "omusujja gwe nkaka", We provide you with 5liters of herbal medicine at Shs.50000 and some additional herbs, contact for more information.</p>
-          </div>
-        </div>
-        <div class="card reveal service in-view">
-          <div class="icon">😷</div>
-          <div>
-            <h3>cough</h3>
-            <p>We  treat cough and cures very well at a coost of Shs.40000. Contact us for more Information .</p>
-          </div>
-        </div>
-        <div class="card reveal service in-view">
-          <div class="icon">😤</div>
-          <div>
-            <h3>Flu</h3>
-            <p>We treat flu and cures instantly at a cost of Shs.45000. contact us for more information.</p>
-          </div>
-        </div>
-        <div class="card reveal service in-view">
-          <div class="icon">🧘‍♀️</div>
-          <div>
-            <h3>Abdominal pain</h3>
-            <p>In some cases this can be "anier" that is caused at abirth or when one carrys very heavy stuff, so its treated at our herbal centre at Shs,70000. you can contact us for more information.</p>
-          </div>
-        <div class="card reveal service in-view">
-         </div>
-        </div>
-        <div class="card reveal service in-view">
-          <div class="icon">‍♀️</div>
-            <h3>Other Medical issue🤷‍♀️</h3>
-            <p>You can contact us incase of any other medical issue .</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="payment">
-    <div class="container">
-      <h2 class="section-title">Online Payment & Registration</h2>
-      <p class="section-sub">Use Airtel Money to complete payment, then submit your registration form.</p>
-      <div class="card reveal">
-        <ol>
-          <li>Open <strong>Airtel Money</strong> on your phone.</li>
-          <li>Choose <strong>Pay Merchant</strong> and enter <strong class="kbd">6869397</strong> (St. Anthony Herbal Centre).</li>
-          <li>Enter the amount for your selected service.</li>
-          <li>After you receive the <strong>Payment Reference</strong>, click <em>“I Have Paid”</em> below.</li>
-        </ol>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-          <button class="btn btn-primary" id="btnIHaventPaid">I Have Paid</button>
-          <a class="btn btn-outline" href="#contact">Need help?</a>
-        </div>
-        <p class="muted" style="margin-top:10px">For assistance, call: <strong>+256 753 669 749</strong> / <strong>+256 752 094 135</strong> / <strong>+256 772 758 262 
-		/ +256755701074</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <section id="testimonials">
-    <div class="container">
-      <h2 class="section-title">Testimonials</h2>
-      <p class="section-sub">Stories from our community</p>
-      <div class="carousel card reveal" aria-roledescription="carousel">
-        <div class="track" id="track">
-          <div class="testimonial">
-            <p>“Agnes’ herbal teas improved my digestion within weeks. Warm, professional guidance throughout.”</p>
-            <strong>— Jane M.</strong>
-          </div>
-          <div class="testimonial">
-            <p>“Highly professional and effective remedies. I appreciate the follow‑ups and clear instructions.”</p>
-            <strong>— David K.</strong>
-          </div>
-          <div class="testimonial">
-            <p>“The detox program was gentle and effective. I feel lighter and sleep better.”</p>
-            <strong>— Sarah L.</strong>
-          </div>
-        </div>
-      </div>
-      <div class="dots" id="dots" aria-label="carousel pagination"></div>
-    </div>
-  </section>
-
-  <section id="blog">
-    <div class="container">
-      <h2 class="section-title">Blog Highlights</h2>
-      <p class="section-sub">Learn with simple, natural tips.</p>
-      <div class="grid grid-3">
-        <div class="card reveal post">
-          <div class="leaf">🌱</div>
-          <div>
-            <h3>Herbal Remedies for Everyday Ailments</h3>
-            <p class="muted">Simple herbs to keep at home and how to use them safely.</p>
-          </div>
-        </div>
-        <div class="card reveal post">
-          <div class="leaf">🍃</div>
-          <div>
-            <h3>Detox the Natural Way</h3>
-            <p class="muted">Gentle protocols that respect your body’s rhythms.</p>
-          </div>
-        </div>
-        <div class="card reveal post">
-          <div class="leaf">🌿</div>
-          <div>
-            <h3>Top 5 Herbs for Skin Glow</h3>
-            <p class="muted">Nourish from within and care for your skin naturally.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
- <!-- ================= CONTACT FORM ================= -->
-<h2>Contact Us</h2>
-<form id="contactForm">
-  <label for="name">Full Name:</label>
-  <input type="text" id="name" name="name" required><br><br>
-
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br><br>
-
-  <label for="message">Message:</label>
-  <textarea id="message" name="message" required></textarea><br><br>
-
-  <button type="submit">Send</button>
-</form>
-
-<!-- ================= REGISTRATION FORM ================= -->
-<h2>Registration</h2>
-<form id="regForm">
-  <label for="regName">Full Name:</label>
-  <input type="text" id="regName" name="name" required><br><br>
-
-  <label for="phone">Phone Number:</label>
-  <input type="text" id="phone" name="phone" required><br><br>
-
-  <label for="ref">Reference Code:</label>
-  <input type="text" id="ref" name="ref"><br><br>
-
-  <label for="regEmail">Email:</label>
-  <input type="email" id="regEmail" name="email" required><br><br>
-
-  <button type="submit">Register</button>
-</form>
-
-<!-- ================= EMAILJS SCRIPT ================= -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("x7n94F6F5zd-yca1a"); // Your Public Key
-  })();
-
-  // Handle both forms with one function
-  function sendEmail(formId) {
-    document.getElementById(formId).addEventListener("submit", function(event){
-      event.preventDefault();
-      emailjs.sendForm("service_f24x354", "template_jl2kykk", this)
-        .then(() => window.location.href = "thank-you.html")
-        .catch(err => alert("❌ Error: " + JSON.stringify(err)));
-    });
-  }
-
-  // Apply to both forms
-  sendEmail("contactForm");
-  sendEmail("regForm");
-</script>
-
-
-  <footer>
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
-      <div>© <span id="year"></span> St. Anthony Herbal Centre — All Rights Reserved.</div>
-      <a href="#home">Back to top ↑</a>
-    </div>
-  </footer>
-
-  <!-- Payment / Registration Modal -->
-  <div class="modal" id="payModal" aria-hidden="true" role="dialog" aria-labelledby="payTitle">
-    <div class="modal-card">
-      <div class="modal-head">
-        <strong id="payTitle">Payment Confirmation</strong>
-        <button class="btn btn-outline" id="closeModal" aria-label="Close">Close</button>
-      </div>
-      <div class="modal-body">
-        <p class="muted">Please confirm you have paid via Airtel Money <strong>Merchant Code <span class="kbd">6869397</span></strong>. Then fill this form so we can schedule you.</p>
-        <form id="regForm">
-          <div class="grid grid-2">
-            <div class="field">
-              <label for="name">Full Name</label>
-              <input id="name" name="name" required placeholder="Your full name" />
-            </div>
-            <div class="field">
-              <label for="phone">Phone Number</label>
-              <input id="phone" name="phone" required placeholder="e.g. +2567XXXXXXXX" />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" />
-            </div>
-            <div class="field">
-              <label for="service">Service Purchased</label>
-              <select id="service" name="service" required>
-                <option value="">Select a service</option>
-                <option>Herbal Consultation</option>
-                <option>Detox Program</option>
-                <option>Workshop</option>
-                <option>Custom Blend</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="ref">Airtel Payment Reference</label>
-              <input id="ref" name="ref" required placeholder="e.g. TXN123456" />
-            </div>
-            <div class="field">
-              <label for="date">Preferred Appointment Date</label>
-              <input id="date" name="date" type="date" required />
-            </div>
-          </div>
-          <div class="field">
-            <label for="notes">Notes / Health Concerns</label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Optional"></textarea>
-          </div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-primary" type="submit">Confirm Registration</button>
-            <button class="btn btn-outline" type="button" id="btnSavePDF">Download Receipt</button>
-          </div>
-          <p class="muted" style="margin-top:10px">We’ll contact you by phone or email to confirm your appointment.</p>
-        </form>
+    <div>
+      <div class="card in-view">
+        <h3 style="margin-top:0;color:var(--green-700)">Why choose us</h3>
+        <ul>
+          <li>100% natural, ethically sourced herbs</li>
+          <li>Over a decade of trusted community care</li>
+          <li>Personalized plans for real results</li>
+          <li>Eco‑friendly, minimal packaging</li>
+        </ul>
       </div>
     </div>
   </div>
+</main>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<!-- ======= ABOUT ======= -->
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Us</h2>
+    <p class="section-sub">St. Anthony Herbal Centre was founded by Agnes to blend traditional knowledge and modern wellness for safe, effective herbal care.</p>
+    <div class="grid grid-2">
+      <div class="card reveal">
+        <h3>Our Story</h3>
+        <p>What began as a family tradition of healing grew into a centre dedicated to holistic wellness. We believe in empowering clients with simple, natural routines that fit everyday life.</p>
+      </div>
+      <div class="card reveal">
+        <h3>Mission & Vision</h3>
+        <p><strong>Mission:</strong> Provide natural, safe, and effective herbal solutions for every individual.</p>
+        <p><strong>Vision:</strong> A healthier community through accessible herbal wellness.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // TikTok button
-    document.getElementById('btnTikTok').addEventListener('click',()=>{
-      window.open('https://www.tiktok.com/@namugangaagnes','_blank');
-    });
-
-    // Smooth reveal on scroll using IntersectionObserver
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
-      })
-    }, {threshold:.2});
-    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-
-    // Carousel
-    const track = document.getElementById('track');
-    const dots = document.getElementById('dots');
-    const slides = [...track.children];
-    let idx = 0;
-    slides.forEach((_,i)=>{
-      const b = document.createElement('button');
-      b.className='dot'+(i===0?' active':'');
-      b.addEventListener('click',()=>{ idx=i; updateCarousel(); });
-      dots.appendChild(b);
-    });
-    function updateCarousel(){
-      track.style.transform = `translateX(${-idx*100}%)`;
-      [...dots.children].forEach((d,i)=> d.classList.toggle('active', i===idx));
-    }
-    setInterval(()=>{ idx=(idx+1)%slides.length; updateCarousel(); }, 5000);
-
-    // Modal handlers
-    const modal = document.getElementById('payModal');
-    const openBtns = [document.getElementById('btnPay'), document.getElementById('btnPay2'), document.getElementById('btnIHaventPaid')];
-    const closeBtn = document.getElementById('closeModal');
-    openBtns.forEach(b=> b.addEventListener('click',()=> openModal()));
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-
-    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
-    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.form-input {
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-.form-input:focus {
-  border-color: #2c7a7b;
-  box-shadow: 0 0 6px rgba(44, 122, 123, 0.4);
-  outline: none;
-}
-
-.btn-primary {
-  background: #2c7a7b;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-.btn-primary:hover { background: #285e61; }
-
-.btn-secondary {
-  background: #eee;
-  color: #333;
-  font-weight: bold;
-  padding: 10px 14px;
-  border-radius: 8px;
-  transition: 0.3s;
-}
-.btn-secondary:hover { background: #ddd; }
-
-.animate-fade-in {
-  animation: fadeInUp 0.6s ease both;
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-</body>
-</html>
-
+<!-- ======= SERVICES ======= -->
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Herbal Packages</h2>
+    <p class="section-sub">Some of our herbal packages.</p>
+    <div class="grid grid-3">
+      <div class="card reveal service in-view">
+        <div class="icon">🤱</div>
+        <div>
+          <h3>Pregnant Women</h3>
+          <p>We have three packages for pregnant women: 2 months, 4 months, and 7–9 months.</p>
+          <p>Cost: Shs.60,000 / 70,000 / 150,000 respectively. More packages are available upon contact.</p>
+        </div>
+      </div>
+      <div class="card reveal service in-view">
+        <div class="icon">👨‍⚕️</div>
+        <div>
+          <h3>Ulcers</h3>
+          <p>Medication for all ulcer stages. Payment depends on ulcer stage. Contact us for details.</p>
+        </div>
+      </div>
+      <div class="card reveal service in-view">
+        <div class="icon">🦠</div>
+        <div>
+          <h3>Yellow Fever</h3>
+          <p>Treatment includes 5 liters of herbal medicine at Shs.50,000 plus additional herbs. Contact us for details.</p>
+        </div>
+      </div>
+      <div class="card reveal service in-view">
+        <div class="icon">😷</div>
+        <div>
+          <h3>Cough</h3>
+          <p>Treatment costs Shs.40,000. Contact for details.</p>
+        </div>
+      </div>
+      <div class="card reveal service in-view">
+        <div class="icon">😤</div>
+        <div>
+          <h3>Flu</h3>
+          <p>Treatment costs Shs.45,000. Contact for details.</p>
+        </div>
+      </div>
+      <div class="card reveal service in-view">
+        <div class="icon">🧘‍♀️</div>
+        <div>
+          <h3>Abdominal Pain</h3>
+          <p>Treatment costs Shs.70,000. Contact for details.</p>
+        </div>
+      </div>
+      <div class="card reveal service in-view">
+        <div class="icon">🤷‍♀️</div>
+        <div>
+          <h3>Other Medical Issues</h3>
+          <p>Contact us for any other health concerns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
