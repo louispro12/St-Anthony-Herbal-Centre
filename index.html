@@ -1,234 +1,572 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- saved from url=(0058)file:///E:/St.%20Anthony%20herbal%20centre/index.html.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>St. Anthony Herbal Centre</title>
-  <meta name="description" content="St. Anthony Herbal Centre offers natural herbal remedies and wellness solutions in Kampala.">
+  <meta name="description" content="St. Anthony Herbal Centre — Nature Heals, Wellness Thrives. Herbal consultations, detox programs, workshops, and custom blends in Kampala, Uganda.">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
+    :root{
+      --green-900:#0f3d2e;
+      --green-700:#1f6f54;
+      --green-600:#2b8a62;
+      --green-500:#45a777;
+      --green-300:#6dbe45; /* brand accent */
+      --beige-50:#f9f6f0;
+      --beige-100:#f3eee5;
+      --brown-400:#a58f70;
+      --text:#1e2b24;
+      --muted:#5d6d63;
+      --ring: rgba(45, 145, 104, .35);
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 16px;
     }
-    header {
-      background: #0f3d2e;
-      color: #fff;
-      padding: 15px 0;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--text);background:var(--beige-50);}
+
+    /* Header */
+    .topbar{position:sticky;top:0;z-index:1000;backdrop-filter:saturate(140%) blur(6px);background:linear-gradient(180deg, rgba(249,246,240,.88), rgba(249,246,240,.66));border-bottom:1px solid #e6e0d6}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    .nav{display:flex;align-items:center;gap:16px;min-height:72px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--green-900)}
+    .brand img{width:44px;height:44px;object-fit:cover;border-radius:999px;border:3px solid var(--green-300);box-shadow:0 4px 12px rgba(109,190,69,.35)}
+    .brand .title{font-weight:800;font-size:1.1rem;letter-spacing:.2px}
+    .spacer{flex:1}
+    .nav a.link{padding:10px 12px;border-radius:12px;color:var(--text);text-decoration:none;font-weight:600}
+    .nav a.link:hover{background:var(--beige-100);}
+    .cta{display:flex;gap:10px}
+    .btn{appearance:none;border:0;border-radius:999px;padding:10px 16px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .2s ease, background .2s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--green-600);color:white}
+    .btn-primary:hover{background:var(--green-700)}
+    .btn-outline{background:white;color:var(--green-700);border:2px solid var(--green-500)}
+    .btn-outline:hover{background:var(--beige-50)}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:-20% -10% auto -10%;height:70%;background:radial-gradient(60% 60% at 20% 30%, rgba(109,190,69,.25), transparent 70%),radial-gradient(60% 60% at 80% 20%, rgba(43,138,98,.18), transparent 70%);} 
+    .hero .wrap{padding:72px 0 48px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(69,167,119,.08);border:1px solid rgba(69,167,119,.25);color:var(--green-700);font-weight:700}
+    h1{margin:.3rem 0 0;font-size:clamp(28px, 5vw, 48px);line-height:1.05;color:var(--green-900)}
+    .lead{font-size:1.05rem;color:var(--muted);margin:12px 0 20px}
+    .quick{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* Sections */
+    section{padding:64px 0}
+    .section-title{font-size:clamp(22px,3.2vw,32px);margin:0 0 8px;color:var(--green-900)}
+    .section-sub{margin:0 0 28px;color:var(--muted)}
+
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
     }
-    header nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    header nav a {
-      color: #fff;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      color: #0f3d2e;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .services, .blog {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .service, .blog-item {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    form input, form select, form textarea, form button {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    form button {
-      background: #0f3d2e;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-    }
-    form button:hover {
-      background: #2f662f;
-    }
-    footer {
-      background: #0f3d2e;
-      color: #fff;
-      text-align: center;
-      padding: 15px 0;
-    }
-    @media(max-width:768px){
-      header nav {flex-direction: column;}
-    }
+
+    .card{background:white;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border:1px solid #eee;opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+    .card.in-view{opacity:1;transform:translateY(0)}
+
+    /* Services */
+    .service{display:flex;gap:14px;align-items:flex-start}
+    .service .icon{flex:0 0 44px;height:44px;border-radius:12px;background:linear-gradient(135deg, var(--green-500), var(--green-700));display:grid;place-items:center;color:white;font-weight:900}
+    .service h3{margin:2px 0 6px}
+    .service p{margin:0;color:var(--muted)}
+
+    /* Testimonials */
+    .carousel{position:relative;overflow:hidden;border-radius:var(--radius);}
+    .track{display:flex;transition:transform .6s ease}
+    .testimonial{min-width:100%;padding:24px;background:white}
+    .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .dot{width:10px;height:10px;border-radius:999px;background:#d6d6d6;cursor:pointer;border:0}
+    .dot.active{background:var(--green-500)}
+
+    /* Blog */
+    .post{display:flex;gap:16px;align-items:flex-start}
+    .post .leaf{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg, #cfe8c9, #9fd19e);display:grid;place-items:center;font-weight:800;color:var(--green-700)}
+
+    /* Contact */
+    .field{display:grid;gap:6px;margin-bottom:14px}
+    input, select, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1.5px solid #e4e1da;background:#fff;font:inherit;outline:0;box-shadow:none}
+    input:focus, select:focus, textarea:focus{border-color:var(--green-500);box-shadow:0 0 0 3px var(--ring)}
+
+    /* Footer */
+    footer{background:var(--green-900);color:#eaf3ee;padding:28px 0}
+    footer a{color:#eaf3ee}
+
+    /* Payment Modal */
+    .modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(15,61,46,.55);z-index:2000}
+    .modal.open{display:grid}
+    .modal-card{background:#fff;border-radius:20px;max-width:720px;width:92vw;box-shadow:var(--shadow);border:1px solid #eee}
+    .modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee}
+    .modal-body{padding:18px 20px}
+    .muted{color:var(--muted)}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, monospace;background:#f2f6f4;border:1px solid #dce9e2;border-radius:8px;padding:2px 6px}
+
+    /* Toast */
+    .toast{position:fixed;right:16px;bottom:16px;background:#103f30;color:#e7fff4;border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);opacity:0;transform:translateY(12px);transition:opacity .35s ease, transform .35s ease;z-index:3000}
+    .toast.show{opacity:1;transform:translateY(0)}
+
+    /* Social icons (inline SVG) */
+    .socials{display:flex;gap:10px}
+    .iconbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:999px;background:#fff;border:1px solid #e8e2d9;box-shadow:var(--shadow)}
+    .iconbtn:hover{transform:translateY(-1px)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
   </style>
 </head>
 <body>
-
-  <header>
-    <div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#pay-register">Pay & Register</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-        <a href="https://www.tiktok.com/@namugangaagnes" target="_blank">TikTok</a>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#home" aria-label="St. Anthony Herbal Centre home">
+        <img src="profile.jpg.jpeg" alt="Agnes profile picture" height="1248" width="1269">
+        <div class="title">St. Anthony Herbal Centre</div>
+      </a>
+      <nav class="spacer">
+        <a class="link" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#about">About</a>
+        <a class="link" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#services">Services</a>
+        <a class="link" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#payment">Pay &amp; Register</a>
+        <a class="link" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#testimonials">Testimonials</a>
+        <a class="link" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#blog">Blog</a>
+        <a class="link" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#contact">Contact</a>
       </nav>
+      <div class="cta">
+        <button class="btn btn-outline" id="btnTikTok" title="TikTok @namugangaagnes">TikTok</button>
+        <button class="btn btn-primary" id="btnPay">Pay &amp; Register</button>
+      </div>
     </div>
   </header>
 
-  <section>
-    <h2>Nature • Wellness • Care</h2>
-    <p><strong>Nature Heals. Wellness Thrives.</strong></p>
-    <p>Authentic herbal care in Kampala. Consultations, detox programs, workshops, and custom herbal blends crafted by Agnes.</p>
-    <p>📞 +256 753 669 748 | +256 752 094 135 | +256 772 758 262</p>
-    <p>🎵 TikTok: @namugangaagnes</p>
-  </section>
+  <main id="home" class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="badge">Nature • Wellness • Care</span>
+        <h1>Nature Heals. Wellness Thrives.</h1>
+        <p class="lead">Authentic herbal care in Kampala. Consultations, detox programs, workshops, and custom herbal blends crafted by Agnes.</p>
+        <div class="quick">
+          <a href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#services" class="btn btn-outline">Explore Services</a>
+          <button class="btn btn-primary" id="btnPay2">Pay &amp; Register</button>
+        </div>
+        <div style="margin-top:18px" class="muted">
+          📞 <strong>+256 753 669 748</strong> &nbsp;|&nbsp; <strong>+256 752 094 135</strong> &nbsp;|&nbsp; <strong>+256 772 758 262 &nbsp;|&nbsp; +256 
+			755 701 074</strong><br>🎵 TikTok: <strong>@namugangaagnes</strong>
+        </div>
+      </div>
+      <div>
+        <div class="card in-view">
+          <h3 style="margin-top:0;color:var(--green-700)">Why choose us</h3>
+          <ul>
+            <li>100% natural, ethically sourced herbs</li>
+            <li>Over a decade of trusted community care</li>
+            <li>Personalized plans for real results</li>
+            <li>Eco‑friendly, minimal packaging</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <section id="about">
-    <h2>Why choose us</h2>
-    <ul>
-      <li>100% natural, ethically sourced herbs</li>
-      <li>Over a decade of trusted community care</li>
-      <li>Personalized plans for real results</li>
-      <li>Eco‑friendly, minimal packaging</li>
-    </ul>
-
-    <h2>About Us</h2>
-    <p>St. Anthony Herbal Centre was founded by Agnes to blend traditional knowledge and modern wellness for safe, effective herbal care.</p>
-
-    <h3>Our Story</h3>
-    <p>What began as a family of healing grew into a centre dedicated to holistic wellness. We believe in empowering clients with natural medicine that heals instantlyn.</p>
-
-    <h3>Mission & Vision</h3>
-    <p><strong>Mission:</strong> Provide natural, safe, and effective herbal solutions for every individual.</p>
-    <p><strong>Vision:</strong> A healthier community through accessible herbal wellness.</p>
-  </section>
-
-  <section id="services">
-    <h2>Herbal Packages</h2>
-    <div class="services">
-      <div class="service">
-        <h3>🤱 Pregnant Women</h3>
-        <p>We have three packages: 2 months Shs.60,000, 4 months Shs.70,000, 7-9 months Shs.150,000. Contact for more packages.</p>
-      </div>
-      <div class="service">
-        <h3>👨‍⚕️ Ulcers</h3>
-        <p>Medication for all ulcer stages. Payment depends on stage. Contact us for info.</p>
-      </div>
-      <div class="service">
-        <h3>😰 Yellow Fever</h3>
-        <p>5 liters of herbal medicine at Shs.50,000 plus additional herbs. Contact for more info.</p>
-      </div>
-      <div class="service">
-        <h3>😷 Cough</h3>
-        <p>Treatment at Shs.40,000. Contact us for more info.</p>
-      </div>
-      <div class="service">
-        <h3>😤 Flu</h3>
-        <p>Treatment at Shs.45,000. Contact for more info.</p>
-      </div>
-      <div class="service">
-        <h3>🧘‍♀️ Abdominal Pain</h3>
-        <p>Treated at Shs.70,000. Can be caused at birth or by heavy lifting. Contact for more info.</p>
-      </div>
-      <div class="service">
-        <h3>🤷‍♀️ Other Medical Issues</h3>
-        <p>Contact us for any other medical issue.</p>
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p class="section-sub">St. Anthony Herbal Centre was founded by Agnes to blend traditional knowledge and modern wellness for safe, effective herbal care.</p>
+      <div class="grid grid-2">
+        <div class="card reveal in-view">
+          <h3>Our Story</h3>
+          <p>What began as a family of healing grew into a centre dedicated to holistic wellness. We believe in empowering clients with natural medicine that heals instantlyn.</p>
+        </div>
+        <div class="card reveal in-view">
+          <h3>Mission &amp; Vision</h3>
+          <p><strong>Mission:</strong> Provide natural, safe, and effective herbal solutions for every individual.</p>
+          <p><strong>Vision:</strong> A healthier community through accessible herbal wellness.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="pay-register">
-    <h2>Online Payment & Registration</h2>
-    <p>Use Airtel Money to complete payment, then submit your registration form.</p>
-    <ul>
-      <li>Open Airtel Money on your phone.</li>
-      <li>Choose Pay Merchant and enter <strong>6869397</strong> (St. Anthony Herbal Centre).</li>
-      <li>Enter the amount for your selected service.</li>
-      <li>After receiving the Payment Reference, click “I Have Paid” below.</li>
-    </ul>
-    <p>For assistance, call: +256 753 669 748 / +256 752 094 135 / +256 772 758 262</p>
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Herbal Pacages</h2>
+      <p class="section-sub">Some of our herbal packages.</p>
+      <div class="grid grid-3">
+        <div class="card reveal service in-view">
+          <div class="icon">🤱</div>
+          <div>
+            <h3>Pregnant Women</h3>
+            <p>We have a three packages of the pregnant women. The first one at 2 months, secondly at 4months lastly at 7 to 9 months  .</p>
+            <p>overall the first package costs Shs.60000. The second it costs Shs.70000 the last one coasts Shs.150000 there are more packages that will be communicated when you contact us👩‍⚕️.</p>
+          </div>
+        </div>
+        <div class="card reveal service in-view">
+          <div class="icon">👨‍⚕️</div>
+          <div>
+            <h3>Ulcers</h3>
+            <p>we provide medication for all ulcer stages.</p>
+            <p>Payment refers to the stage of ulcers contact us for more information.</p>
+          </div>
+        </div>
+        <div class="card reveal service in-view">
+          <div class="icon">😰‍</div>
+          <div>
+            <h3>Yellow Fever</h3>
+            <p>we provide treatment on yellow fever "omusujja gwe nkaka", We provide you with 5liters of herbal medicine at Shs.50000 and some additional herbs, contact for more information.</p>
+          </div>
+        </div>
+        <div class="card reveal service in-view">
+          <div class="icon">😷</div>
+          <div>
+            <h3>cough</h3>
+            <p>We  treat cough and cures very well at a coost of Shs.40000. Contact us for more Information .</p>
+          </div>
+        </div>
+        <div class="card reveal service in-view">
+          <div class="icon">😤</div>
+          <div>
+            <h3>Flu</h3>
+            <p>We treat flu and cures instantly at a cost of Shs.45000. contact us for more information.</p>
+          </div>
+        </div>
+        <div class="card reveal service in-view">
+          <div class="icon">‍♀️</div>
+            <h3>Other Medical issue🤷‍♀️</h3>
+            <p>You can contact us incase of any other medical issue .</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <input type="email" placeholder="Email" required>
-      <select required>
-        <option value="">Service Purchased</option>
-        <option>Pregnant Women</option>
-        <option>Ulcers</option>
-        <option>Yellow Fever</option>
-        <option>Cough</option>
-        <option>Flu</option>
-        <option>Other</option>
-      </select>
-      <input type="text" placeholder="Airtel Payment Reference" required>
-      <input type="date" placeholder="Preferred Appointment Date" required>
-      <textarea placeholder="Notes / Health Concerns"></textarea>
-      <button type="submit">Confirm Registration</button>
-    </form>
+  <section id="payment">
+    <div class="container">
+      <h2 class="section-title">Online Payment &amp; Registration</h2>
+      <p class="section-sub">Use Airtel Money to complete payment, then submit your registration form.</p>
+      <div class="card reveal in-view">
+        <ol>
+          <li>Open <strong>Airtel Money</strong> on your phone.</li>
+          <li>Choose <strong>Pay Merchant</strong> and enter <strong class="kbd">6869397</strong> (St. Anthony Herbal Centre).</li>
+          <li>Enter the amount for your selected service.</li>
+          <li>After you receive the <strong>Payment Reference</strong>, click <em>“I Have Paid”</em> below.</li>
+        </ol>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <button class="btn btn-primary" id="btnIHaventPaid">I Have Paid</button>
+          <a class="btn btn-outline" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#contact">Need help?</a>
+        </div>
+        <p class="muted" style="margin-top:10px">For assistance, call: <strong>+256 753 669 748</strong> / <strong>+256 752 094 135</strong> / <strong>+256 772 758 262</strong></p>
+      </div>
+    </div>
   </section>
 
   <section id="testimonials">
-    <h2>Testimonials</h2>
-    <p>“Ssekigozi’ herbal teas improved my digestion within weeks. Warm, professional guidance throughout.” — Jane M.</p>
-    <p>“Highly professional and effective remedies. I appreciate the follow-ups and clear instructions.” — David K.</p>
-    <p>“The package was and effective. I feel lighter and sleep better.” — Sarah L.</p>
+    <div class="container">
+      <h2 class="section-title">Testimonials</h2>
+      <p class="section-sub">Stories from our community</p>
+      <div class="carousel card reveal in-view" aria-roledescription="carousel">
+        <div class="track" id="track" style="transform: translateX(-200%);">
+          <div class="testimonial">
+            <p>“Herbal teas improved my digestion within weeks. Warm, professional guidance throughout.”</p>
+            <strong>— Ssekigozi J.</strong>
+          </div>
+          <div class="testimonial">
+            <p>“Highly professional and effective remedies. I appreciate the follow‑ups and clear instructions.”</p>
+            <strong>— David K.</strong>
+          </div>
+          <div class="testimonial">
+            <p>“The package was and effective. I feel lighter and sleep better.”</p>
+            <strong>— Sarah A .</strong>
+          </div>
+        </div>
+      </div>
+      <div class="dots" id="dots" aria-label="carousel pagination"><button class="dot"></button><button class="dot"></button><button class="dot active"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button><button class="dot"></button></div>
+    </div>
   </section>
 
   <section id="blog">
-    <h2>Blog Highlights</h2>
-    <div class="blog">
-      <div class="blog-item">
-        <h3>🌱 Herbal Remedies for Everyday Ailments</h3>
-        <p>Simple herbs to keep at home and how to use them safely.</p>
-      </div>
-      <div class="blog-item">
-        <h3>🍃 Detox the Natural Way</h3>
-        <p>Gentle protocols that respect your body’s rhythms.</p>
-      </div>
-      <div class="blog-item">
-        <h3>🌿 Top 5 Herbs for Skin Glow</h3>
-        <p>Nourish from within and care for your skin naturally.</p>
+    <div class="container">
+      <h2 class="section-title">Blog Highlights</h2>
+      <p class="section-sub">Learn with simple, natural tips.</p>
+      <div class="grid grid-3">
+        <div class="card reveal post in-view">
+          <div class="leaf">🌱</div>
+          <div>
+            <h3>Herbal Remedies for Everyday Ailments</h3>
+            <p class="muted">Simple herbs to keep at home and how to use them safely.</p>
+          </div>
+        </div>
+        <div class="card reveal post in-view">
+          <div class="leaf">🍃</div>
+          <div>
+            <h3>Detox the Natural Way</h3>
+            <p class="muted">Gentle protocols that respect your body’s rhythms.</p>
+          </div>
+        </div>
+        <div class="card reveal post in-view">
+          <div class="leaf">🌿</div>
+          <div>
+            <h3>Top 5 Herbs for Skin Glow</h3>
+            <p class="muted">Nourish from within and care for your skin naturally.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Email</button>
-    </form>
-    <p>Address: Uganda-Entebbe Kawuku-Buzzi Kasaali Kinalwanda road 15m off Nakawuuka Road</p>
-    <p>Phone: +256 753 669 748 / +256 752 094 135 / +256 772 758 262</p>
-    <p>Email: stanthonyherbalcentre@gmail.com</p>
-    <p><a href="https://www.tiktok.com/@namugangaagnes" target="_blank">TikTok</a> | Instagram | YouTube</p>
-  </section>
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">We’d love to hear from you.</p>
+      <div class="grid grid-2">
+        <div class="card reveal in-view">
+          <form id="contactForm">
+            <div class="field">
+              <label for="cname">Full Name</label>
+              <input id="cname" name="name" required="" placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="cemail">Email</label>
+              
+  <input type="text" name="from_name" placeholder="Your Name">
+  <input type="email" name="reply_to" placeholder="Your Email">
+  <textarea name="message" placeholder="Your Message"></textarea>
+  <button type="submit">Send Email</button>
+
+<script src="file:///E:/St.%20Anthony%20herbal%20centre/St.%20Anthony%20Herbal%20Centre_files/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("YOUR_USER_ID");
+  })();
+
+  document.getElementById("contactForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this)
+      .then(() => alert("Email Sent!"))
+      .catch(err => alert(JSON.stringify(err)));
+  });
+</script>
+        </div></form>
+        <div class="card reveal in-view">
+          <h3>Reach us</h3>
+          <p><strong>Address:</strong>Uganda-Entebbe Kawuku-Buzzi Kasaali Kinalwanda /Akright road 15mitres off Nakawuuka Road</p>
+          <p><strong>Phone:</strong> +256 753 669 749 / +256 752 094 135 / +256 772 758 262 
+		  / +256 755701074</p>
+          <p><strong>Email:</strong> stanthonyherbalcentre@gmail.com</p>
+          <div class="socials" style="margin-top:10px">
+            <a class="iconbtn" href="https://www.tiktok.com/@namugangaagnes" target="_blank" rel="noopener" aria-label="TikTok">
+              <!-- TikTok SVG -->
+              <svg width="18" height="18" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#000" d="M153 0h36c4 27 20 49 45 61v33c-16-1-31-6-45-14v86c0 39-26 73-64 83c-44 11-90-17-101-61c-11-44 17-89 61-100c9-2 18-3 27-2v38c-5-1-10-1-15 0c-25 6-41 31-35 56s31 41 56 35c22-5 38-25 38-48V0Z"></path></svg>
+              <span class="sr-only">TikTok</span>
+            </a>
+            <a class="iconbtn" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#" aria-label="Instagram">
+              <!-- Simple camera icon -->
+              <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm5 3a5 5 0 1 1 0 10a5 5 0 0 1 0-10m0 2.5A2.5 2.5 0 1 0 14.5 12A2.5 2.5 0 0 0 12 9.5M18 7.2a.8.8 0 1 1-.8.8a.8.8 0 0 1 .8-.8"></path></svg>
+              <span class="sr-only">Instagram</span>
+            </a>
+            <a class="iconbtn" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.6A3 3 0 0 0 2.4 7.2A31.5 31.5 0 0 0 1.8 12c0 1.6.2 3.2.6 4.8a3 3 0 0 0 2.1 2.1c1.6.6 7.5.6 7.5.6s5.9 0 7.5-.6a3 3 0 0 0 2.1-2.1c.4-1.6.6-3.2.6-4.8c0-1.6-.2-3.2-.6-4.8M10 15.5v-7l6 3.5z"></path></svg>
+              <span class="sr-only">YouTube</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></section>
 
   <footer>
-    <p>© 2025 St. Anthony Herbal Centre — All Rights Reserved.</p>
-    <p><a href="#top">Back to top ↑</a></p>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between">
+      <div>© <span id="year">2025</span> St. Anthony Herbal Centre — All Rights Reserved.</div>
+      <a href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#home">Back to top ↑</a>
+    </div>
   </footer>
 
+  <!-- Payment / Registration Modal -->
+  <div class="modal" id="payModal" aria-hidden="true" role="dialog" aria-labelledby="payTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <strong id="payTitle">Payment Confirmation</strong>
+        <button class="btn btn-outline" id="closeModal" aria-label="Close">Close</button>
+      </div>
+      <div class="modal-body">
+        <p class="muted">Please confirm you have paid via Airtel Money <strong>Merchant Code <span class="kbd">6869397</span></strong>. Then fill this form so we can schedule you.</p>
+        <form id="regForm">
+          <div class="grid grid-2">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" required="" placeholder="Your full name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input id="phone" name="phone" required="" placeholder="e.g. +2567XXXXXXXX">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com">
+            </div>
+            <div class="field">
+              <label for="service">Service Purchased</label>
+              <select id="service" name="service" required="">
+                <option value="">Select a service</option>
+                <option>Pregnant Women</option>
+                <option>Ulcers</option>
+                <option>Yellow Fever</option>
+                <option>cough</option>
+                <option>Flu</option>
+                <option>other
+              </option></select>
+            </div>
+            <div class="field">
+              <label for="ref">Airtel Payment Reference</label>
+              <input id="ref" name="ref" required="" placeholder="e.g. TXN123456">
+            </div>
+            <div class="field">
+              <label for="date">Preferred Appointment Date</label>
+              <input id="date" name="date" type="date" required="">
+            </div>
+          </div>
+          <div class="field">
+            <label for="notes">Notes / Health Concerns</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Optional"></textarea>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" type="submit">Confirm Registration</button>
+            <button class="btn btn-outline" type="button" id="btnSavePDF">Download Receipt</button>
+          </div>
+          <p class="muted" style="margin-top:10px">We’ll contact you by phone or email to confirm your appointment.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <header class="lowerbar">
+    <div class="container nav">
+      <a class="brand" href="file:///E:/Desktop/St.%20Anthony%20herbal%20centre/st_anthony_herbal_centre_single_file_website_html_css_js.html#home" aria-label="St. Anthony Herbal Centre home">
+        <img src="agnes.jpg.jpg" alt="Agnes profile picture" height="1248" width="1269">
+        <div class="title">The founder Ms.Namuganga Agnes</div>
+      </a>
+
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // TikTok button
+    document.getElementById('btnTikTok').addEventListener('click',()=>{
+      window.open('https://www.tiktok.com/@namugangaagnes','_blank');
+    });
+
+    // Smooth reveal on scroll using IntersectionObserver
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      })
+    }, {threshold:.2});
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Carousel
+    const track = document.getElementById('track');
+    const dots = document.getElementById('dots');
+    const slides = [...track.children];
+    let idx = 0;
+    slides.forEach((_,i)=>{
+      const b = document.createElement('button');
+      b.className='dot'+(i===0?' active':'');
+      b.addEventListener('click',()=>{ idx=i; updateCarousel(); });
+      dots.appendChild(b);
+    });
+    function updateCarousel(){
+      track.style.transform = `translateX(${-idx*100}%)`;
+      [...dots.children].forEach((d,i)=> d.classList.toggle('active', i===idx));
+    }
+    setInterval(()=>{ idx=(idx+1)%slides.length; updateCarousel(); }, 5000);
+
+    // Modal handlers
+    const modal = document.getElementById('payModal');
+    const openBtns = [document.getElementById('btnPay'), document.getElementById('btnPay2'), document.getElementById('btnIHaventPaid')];
+    const closeBtn = document.getElementById('closeModal');
+    openBtns.forEach(b=> b.addEventListener('click',()=> openModal()));
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+
+    function openModal(){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+
+    // Registration form
+    const regForm = document.getElementById('regForm');
+    regForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(regForm).entries());
+      // basic validation
+      if(!data.name || !data.phone || !data.service || !data.ref || !data.date){
+        return toast('Please fill all required fields.');
+      }
+      // Save to localStorage
+      const key = `registration:${Date.now()}`;
+      localStorage.setItem(key, JSON.stringify(data));
+
+      // Prepare mailto fallback
+      const subject = encodeURIComponent('New Registration — St. Anthony Herbal Centre');
+      const body = encodeURIComponent(
+        `Name: ${data.name}\n`+
+        `Phone: ${data.phone}\n`+
+        `Email: ${data.email||''}\n`+
+        `Service: ${data.service}\n`+
+        `Reference: ${data.ref}\n`+
+        `Preferred Date: ${data.date}\n`+
+        `Notes: ${data.notes||''}\n`
+      );
+      const mailto = `mailto:info@stanthonyherbal.ug?subject=${subject}&body=${body}`;
+      // You can uncomment the next line to open the email client automatically
+      // window.open(mailto, '_blank');
+
+      toast('Registration received. We will contact you shortly.');
+      regForm.reset();
+      closeModal();
+    });
+
+    // Download Receipt (simple JSON file)
+    document.getElementById('btnSavePDF').addEventListener('click', ()=>{
+      const data = Object.fromEntries(new FormData(regForm).entries());
+      const stamp = new Date().toISOString().replace(/[:.]/g,'-');
+      const filename = `Registration-${stamp}.txt`;
+      const content = `St. Anthony Herbal Centre\nPayment Confirmation Receipt\n\n`+
+        `Name: ${data.name||''}\n`+
+        `Phone: ${data.phone||''}\n`+
+        `Email: ${data.email||''}\n`+
+        `Service: ${data.service||''}\n`+
+        `Airtel Reference: ${data.ref||''}\n`+
+        `Preferred Date: ${data.date||''}\n`+
+        `Notes: ${data.notes||''}\n`+
+        `Merchant Code: 6869397\n`+
+        `Generated: ${new Date().toString()}\n`;
+      const blob = new Blob([content], {type:'text/plain'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    // Contact form (mailto)
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const d = Object.fromEntries(new FormData(e.target).entries());
+      const subject = encodeURIComponent('Website Inquiry — St. Anthony Herbal Centre');
+      const body = encodeURIComponent(`Name: ${d.name}\nEmail: ${d.email}\n\n${d.message}`);
+      window.location.href = `mailto:info@stanthonyherbal.ug?subject=${subject}&body=${body}`;
+      toast('Opening your email app to send the message…');
+      e.target.reset();
+    });
+
+    // Tiny toast helper
+    const toastEl = document.getElementById('toast');
+    let toastTimer = null;
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=> toastEl.classList.remove('show'), 3200);
+    }
+  </script>
 </body>
 </html>
